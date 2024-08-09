@@ -20,7 +20,7 @@ local config = {
 	},
 	keys = {
 		{
-			key = 'F11',
+			key = 'F3',
 			action = wezterm.action.ToggleFullScreen,
 		},
 	},
