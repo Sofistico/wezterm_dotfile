@@ -7,6 +7,7 @@ local config = {
 	font = wezterm.font_with_fallback({
 	{ family = 'DejaVuSansM Nerd Font Mono', scale = 0.90 },
 	{ family = "Symbols Nerd Font Mono", scale = 0.80} }),
+	font_size = 10.0,
 	hide_tab_bar_if_only_one_tab = true,
 	window_padding = {
 	  left = 0,
