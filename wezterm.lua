@@ -19,13 +19,6 @@ local config = {
 	  cursor_bg = '#a54cff',
 	  cursor_fg = '#7f00ff',
 	},
-	keys = {
-		{
-			key = 'F3',
-			action = wezterm.action.ToggleFullScreen,
-		},
-	},
-	--default_prog = { "C:/cygwin64/Cygwin" }
 	default_prog = { "pwsh" }
 }
 
