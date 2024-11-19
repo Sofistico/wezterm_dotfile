@@ -24,7 +24,7 @@ config.window_padding = {
 }
 config.colors = { cursor_bg = "#a54cff", cursor_fg = "#7f00ff" }
 config.default_prog = { "pwsh" }
-config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
+config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1001 }
 config.keys = {
 	{
 		key = "|",
