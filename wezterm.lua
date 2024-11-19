@@ -61,10 +61,10 @@ config.keys = {
 		mods = "LEADER",
 		action = act.CloseCurrentPane({ confirm = true }),
 	},
-	{ key = "k", mods = "LEADER", action = act.ActivatePaneDirection("Up") },
-	{ key = "j", mods = "LEADER", action = act.ActivatePaneDirection("Down") },
-	{ key = "h", mods = "LEADER", action = act.ActivatePaneDirection("Left") },
-	{ key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
+	{ key = "k", mods = "LEADER|CTRL", action = act.ActivatePaneDirection("Up") },
+	{ key = "j", mods = "LEADER|CTRL", action = act.ActivatePaneDirection("Down") },
+	{ key = "h", mods = "LEADER|CTRL", action = act.ActivatePaneDirection("Left") },
+	{ key = "l", mods = "LEADER|CTRL", action = act.ActivatePaneDirection("Right") },
 	{
 		key = "p",
 		mods = "LEADER",
@@ -79,6 +79,19 @@ config.keys = {
 	{ key = "p", mods = "LEADER|CTRL", action = act.SwitchWorkspaceRelative(-1) },
 	-- Create a new workspace with a random name and switch to it
 	{ key = "i", mods = "LEADER|CTRL", action = act.SwitchToWorkspace },
+	{
+		mods = "LEADER",
+		key = "m",
+		action = wezterm.action.TogglePaneZoomState,
+	},
+	-- show the pane selection mode, but have it swap the active and selected panes
+	{
+		mods = "LEADER",
+		key = "0",
+		action = wezterm.action.PaneSelect({
+			mode = "SwapWithActive",
+		}),
+	},
 	{
 		key = "w",
 		mods = "LEADER|CTRL",
