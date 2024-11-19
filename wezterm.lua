@@ -15,7 +15,7 @@ config.font = wezterm.font_with_fallback({
 	{ family = "Symbols Nerd Font Mono", scale = 0.80 },
 })
 config.font_size = 10.0
-config.hide_tab_bar_if_only_one_tab = true
+-- config.hide_tab_bar_if_only_one_tab = true
 config.window_padding = {
 	left = 0,
 	right = 0,
@@ -70,7 +70,41 @@ config.keys = {
 		mods = "LEADER",
 		action = act.PaneSelect({ alphabet = "1234567890", mode = "SwapWithActiveKeepFocus" }),
 	},
+	{
+		key = "x",
+		mods = "LEADER|CTRL",
+		action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }),
+	},
+	{ key = "n", mods = "LEADER|CTRL", action = act.SwitchWorkspaceRelative(1) },
+	{ key = "p", mods = "LEADER|CTRL", action = act.SwitchWorkspaceRelative(-1) },
+	-- Create a new workspace with a random name and switch to it
+	{ key = "i", mods = "LEADER|CTRL", action = act.SwitchToWorkspace },
+	{
+		key = "w",
+		mods = "LEADER|CTRL",
+		action = act.PromptInputLine({
+			description = wezterm.format({
+				{ Attribute = { Intensity = "Bold" } },
+				{ Foreground = { AnsiColor = "Fuchsia" } },
+				{ Text = "Enter name for new workspace" },
+			}),
+			action = wezterm.action_callback(function(window, pane, line)
+				-- line will be `nil` if they hit escape without entering anything
+				-- An empty string if they just hit enter
+				-- Or the actual line of text they wrote
+				if line then
+					window:perform_action(
+						act.SwitchToWorkspace({
+							name = line,
+						}),
+						pane
+					)
+				end
+			end),
+		}),
+	},
 }
+
 config.wsl_domains = {
 	{
 		name = "WSL:Ubuntu",
@@ -96,6 +130,9 @@ wezterm.on("gui-attached", function(domain)
 	end
 end)
 
+wezterm.on("update-right-status", function(window, pane)
+	window:set_right_status(window:active_workspace())
+end)
 -- This is where you actually apply your config choices
 
 -- and finally, return the configuration to wezterm
