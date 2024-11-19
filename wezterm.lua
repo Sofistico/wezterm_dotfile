@@ -59,7 +59,7 @@ config.keys = {
 	{
 		key = "w",
 		mods = "LEADER",
-		action = act.CloseCurrentPane({ confirm = true }),
+		action = act.CloseCurrentPane({ confirm = false }),
 	},
 	{ key = "k", mods = "LEADER|CTRL", action = act.ActivatePaneDirection("Up") },
 	{ key = "j", mods = "LEADER|CTRL", action = act.ActivatePaneDirection("Down") },
@@ -115,6 +115,20 @@ config.keys = {
 				end
 			end),
 		}),
+	},
+	{
+		key = "!",
+		mods = "LEADER | SHIFT",
+		action = wezterm.action_callback(function(win, pane)
+			local tab, window = pane:move_to_new_tab()
+		end),
+	},
+	{
+		key = "!",
+		mods = "LEADER | SHIFT | CTRL",
+		action = wezterm.action_callback(function(win, pane)
+			local tab, window = pane:move_to_new_window()
+		end),
 	},
 }
 
