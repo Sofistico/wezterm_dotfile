@@ -15,7 +15,7 @@ config.font = wezterm.font_with_fallback({
 	{ family = "Symbols Nerd Font Mono", scale = 0.80 },
 })
 config.font_size = 10.0
--- config.hide_tab_bar_if_only_one_tab = true
+config.hide_tab_bar_if_only_one_tab = true
 config.window_padding = {
 	left = 0,
 	right = 0,
