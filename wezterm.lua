@@ -39,16 +39,16 @@ local config = {
 			mods = "LEADER|SHIFT",
 			action = act.SpawnTab({ DomainName = "WSL:Ubuntu" }),
 		},
-		-- {
-		-- 	key = "d",
-		-- 	mods = "LEADER",
-		-- 	action = act.DetachDomain("CurrentPaneDomain"),
-		-- },
-		-- {
-		-- 	key = "u",
-		-- 	mods = "LEADER",
-		-- 	action = act.AttachDomain("WSL:Ubuntu"),
-		-- },
+		{
+			key = "d",
+			mods = "LEADER",
+			action = act.DetachDomain("CurrentPaneDomain"),
+		},
+		{
+			key = "u",
+			mods = "LEADER",
+			action = act.AttachDomain("WSL:Ubuntu"),
+		},
 		{
 			key = "t",
 			mods = "LEADER",
