@@ -32,6 +32,11 @@ config.keys = {
 		action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 	},
 	{
+		key = "q",
+		mods = "LEADER|CTRL",
+		action = act.SendKey({ key = "q", mods = "CTRL" }),
+	},
+	{
 		key = "-",
 		mods = "LEADER",
 		action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
