@@ -59,7 +59,7 @@ config.keys = {
 	{
 		key = "t",
 		mods = "LEADER",
-		action = act.SpawnTab("CurrentPaneDomain"),
+		action = act.SpawnTab("DefaultDomain"),
 	},
 	{
 		key = "w",
