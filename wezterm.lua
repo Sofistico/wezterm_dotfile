@@ -27,8 +27,8 @@ config.default_prog = { "pwsh" }
 config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1001 }
 config.keys = {
 	{
-		key = "|",
-		mods = "LEADER|SHIFT",
+		key = "v",
+		mods = "LEADER|CTRL",
 		action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 	},
 	{
@@ -37,8 +37,8 @@ config.keys = {
 		action = act.SendKey({ key = "q", mods = "CTRL" }),
 	},
 	{
-		key = "-",
-		mods = "LEADER",
+		key = "s",
+		mods = "LEADER|CTRL",
 		action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
 	},
 	{
