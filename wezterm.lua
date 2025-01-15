@@ -25,6 +25,7 @@ config.window_padding = {
 config.colors = { cursor_bg = "#a54cff", cursor_fg = "#7f00ff" }
 config.default_prog = { "pwsh" }
 config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1001 }
+
 config.keys = {
 	{
 		key = "v",
@@ -45,6 +46,11 @@ config.keys = {
 		key = "T",
 		mods = "LEADER|SHIFT",
 		action = act.SpawnTab({ DomainName = "WSL:Ubuntu" }),
+	},
+	{
+		key = "t",
+		mods = "LEADER|CTRL",
+		action = act.SpawnCommandInNewTab({ label = "Spawn new Nu shell", args = { "nu" } }),
 	},
 	{
 		key = "d",
