@@ -23,7 +23,7 @@ config.window_padding = {
 	bottom = 0,
 }
 config.colors = { cursor_bg = "#a54cff", cursor_fg = "#7f00ff" }
-config.default_prog = { "pwsh" }
+config.default_prog = { "nu" }
 config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1001 }
 
 config.keys = {
@@ -50,7 +50,7 @@ config.keys = {
 	{
 		key = "t",
 		mods = "LEADER|CTRL",
-		action = act.SpawnCommandInNewTab({ label = "Spawn new Nu shell", args = { "nu" } }),
+		action = act.SpawnCommandInNewTab({ label = "Spawn new Powershell", args = { "pwsh" } }),
 	},
 	{
 		key = "d",
