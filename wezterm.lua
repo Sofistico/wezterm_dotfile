@@ -1,7 +1,7 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
 local mux = wezterm.mux
-local act = wezterm.action 
+local act = wezterm.action
 
 -- This will hold the configuration.
 -- Allow working with both the current release and the nightly
@@ -85,7 +85,7 @@ config.keys = {
 	{
 		key = "x",
 		mods = "LEADER|CTRL",
-		action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }),
+		action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES|DOMAINS" }),
 	},
 	{ key = "n", mods = "LEADER|CTRL", action = act.SwitchWorkspaceRelative(1) },
 	{ key = "p", mods = "LEADER|CTRL", action = act.SwitchWorkspaceRelative(-1) },
@@ -156,8 +156,31 @@ config.wsl_domains = {
 
 config.unix_domains = {
 	{
+		-- The name; must be unique amongst all domains
 		name = "unix",
+
+		-- The path to the socket.  If unspecified, a reasonable default
+		-- value will be computed.
+
+		-- socket_path = "/some/path",
+
+		-- If true, do not attempt to start this server if we try and fail to
+		-- connect to it.
+
+		-- no_serve_automatically = false,
+
+		-- If true, bypass checking for secure ownership of the
+		-- socket_path.  This is not recommended on a multi-user
+		-- system, but is useful for example when running the
+		-- server inside a WSL container but with the socket
+		-- on the host NTFS volume.
+
+		-- skip_permissions_check = false,
 	},
+	{
+		name = "unix2",
+		socket_path = '~/.local/share/wezterm/sock2'
+	}
 }
 
 wezterm.on("gui-startup", function(cmd)
