@@ -1,7 +1,7 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
 local mux = wezterm.mux
-local act = wezterm.action
+local act = wezterm.action 
 
 -- This will hold the configuration.
 -- Allow working with both the current release and the nightly
@@ -25,6 +25,7 @@ config.window_padding = {
 config.colors = { cursor_bg = "#a54cff", cursor_fg = "#7f00ff" }
 config.default_prog = { "nu" }
 config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1001 }
+config.color_scheme = "Catppuccin Mocha" -- Mocha, Macchiato, Frappe or Latte
 
 config.keys = {
 	{
@@ -93,13 +94,13 @@ config.keys = {
 	{
 		mods = "LEADER",
 		key = "m",
-		action = wezterm.action.TogglePaneZoomState,
+		action = act.TogglePaneZoomState,
 	},
 	-- show the pane selection mode, but have it swap the active and selected panes
 	{
 		mods = "LEADER",
 		key = "0",
-		action = wezterm.action.PaneSelect({
+		action = act.PaneSelect({
 			mode = "SwapWithActive",
 		}),
 	},
