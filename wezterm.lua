@@ -11,7 +11,7 @@ if wezterm.config_builder then
 end
 
 config.font = wezterm.font_with_fallback({
-	{ family = "DejaVuSansM Nerd Font Mono", scale = 0.90 },
+	{ family = "DejaVuSansM Nerd Font Mono", scale = 0.91 },
 	{ family = "Symbols Nerd Font Mono", scale = 0.80 },
 })
 config.font_size = 10.0
