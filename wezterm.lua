@@ -25,7 +25,7 @@ config.window_padding = {
 config.colors = { cursor_bg = "#a54cff", cursor_fg = "#7f00ff" }
 config.default_prog = { "nu" }
 config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1001 }
--- config.color_scheme = "Catppuccin Mocha" -- Mocha, Macchiato, Frappe or Latte
+config.color_scheme = "Catppuccin Mocha" -- Mocha, Macchiato, Frappe or Latte
 
 config.keys = {
 	{
@@ -65,6 +65,11 @@ config.keys = {
 	},
 	{
 		key = "t",
+		mods = "LEADER",
+		action = act.SpawnTab("DefaultDomain"),
+	},
+	{
+		key = "n",
 		mods = "LEADER",
 		action = act.SpawnTab("DefaultDomain"),
 	},
