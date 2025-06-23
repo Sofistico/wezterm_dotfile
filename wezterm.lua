@@ -22,7 +22,7 @@ config.window_padding = {
 	top = 0,
 	bottom = 0,
 }
-config.colors = { cursor_bg = "#a54cff", cursor_fg = "#7f00ff" }
+config.colors = { cursor_bg = "#a54cff" }
 config.default_prog = { "nu" }
 config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1001 }
 config.color_scheme = "Catppuccin Mocha" -- Mocha, Macchiato, Frappe or Latte
