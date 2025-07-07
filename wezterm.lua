@@ -90,7 +90,7 @@ config.keys = {
 	{
 		key = "x",
 		mods = "LEADER|CTRL",
-		action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES|DOMAINS" }),
+		action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES|DOMAINS|TABS" }),
 	},
 	{ key = "n", mods = "LEADER|CTRL", action = act.SwitchWorkspaceRelative(1) },
 	{ key = "p", mods = "LEADER|CTRL", action = act.SwitchWorkspaceRelative(-1) },
