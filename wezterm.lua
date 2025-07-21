@@ -147,6 +147,22 @@ config.keys = {
 			local tab, window = pane:move_to_new_window()
 		end),
 	},
+	{
+		key = "P",
+		mods = "CTRL",
+		action = wezterm.action({
+			QuickSelectArgs = {
+				patterns = {
+					"https?://\\S+",
+				},
+				action = wezterm.action_callback(function(window, pane)
+					local url = window:get_selection_text_for_pane(pane)
+					wezterm.log_info("opening: " .. url)
+					wezterm.open_with(url)
+				end),
+			},
+		}),
+	},
 }
 
 config.wsl_domains = {
@@ -184,7 +200,7 @@ config.unix_domains = {
 	},
 	{
 		name = "unix2",
-		socket_path = '~/.local/share/wezterm/sock2'
+		socket_path = "~/.local/share/wezterm/sock2",
 	}
 }
 
