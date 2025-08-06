@@ -73,11 +73,11 @@ config.keys = {
 		mods = "LEADER",
 		action = act.SpawnTab("DefaultDomain"),
 	},
-	-- {
-	-- 	key = "w",
-	-- 	mods = "LEADER",
-	-- 	action = act.CloseCurrentPane({ confirm = false }),
-	-- },
+	{
+		key = "w",
+		mods = "LEADER",
+		action = act.CloseCurrentPane({ confirm = false }),
+	},
 	{ key = "k", mods = "LEADER|CTRL", action = act.ActivatePaneDirection("Up") },
 	{ key = "j", mods = "LEADER|CTRL", action = act.ActivatePaneDirection("Down") },
 	{ key = "h", mods = "LEADER|CTRL", action = act.ActivatePaneDirection("Left") },
@@ -148,7 +148,7 @@ config.keys = {
 		end),
 	},
 	{
-		key = "P",
+		key = "O",
 		mods = "CTRL",
 		action = wezterm.action({
 			QuickSelectArgs = {
