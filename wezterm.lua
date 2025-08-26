@@ -26,6 +26,9 @@ config.colors = { cursor_bg = "#a54cff" }
 config.default_prog = { "nu" }
 config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1001 }
 config.color_scheme = "Catppuccin Mocha" -- Mocha, Macchiato, Frappe or Latte
+config.quick_select_patterns = {
+  '(?im)^[{(]?[0-9A-F]{8}[-]?(?:[0-9A-F]{4}[-]?){3}[0-9A-F]{12}[)}]?$',
+}
 
 config.keys = {
 	{
