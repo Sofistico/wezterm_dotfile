@@ -126,6 +126,9 @@ config.keys = {
 				-- An empty string if they just hit enter
 				-- Or the actual line of text they wrote
 				if line then
+          if line == '' then
+            line = nil
+          end
 					window:perform_action(
 						act.SwitchToWorkspace({
 							name = line,
