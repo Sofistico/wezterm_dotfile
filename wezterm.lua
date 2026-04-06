@@ -53,7 +53,7 @@ config.keys = {
 	},
 	{
 		key = "t",
-		mods = "LEADER|CTRL|SHIFT",
+		mods = "LEADER|CTRL",
 		action = act.SpawnCommandInNewTab({ label = "Spawn new Powershell", args = { "pwsh" } }),
 	},
 	{
