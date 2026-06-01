@@ -27,7 +27,7 @@ config.default_prog = { "nu" }
 config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1001 }
 config.color_scheme = "Catppuccin Mocha" -- Mocha, Macchiato, Frappe or Latte
 config.quick_select_patterns = {
-  '(?im)^[{(]?[0-9A-F]{8}[-]?(?:[0-9A-F]{4}[-]?){3}[0-9A-F]{12}[)}]?$',
+	"(?im)^[{(]?[0-9A-F]{8}[-]?(?:[0-9A-F]{4}[-]?){3}[0-9A-F]{12}[)}]?$",
 }
 
 config.keys = {
@@ -71,11 +71,11 @@ config.keys = {
 		mods = "LEADER",
 		action = act.SpawnTab("DefaultDomain"),
 	},
-	{
-		key = "n",
-		mods = "LEADER",
-		action = act.SpawnTab("DefaultDomain"),
-	},
+	-- {
+	-- 	key = "n",
+	-- 	mods = "LEADER",
+	-- 	action = act.SpawnTab("DefaultDomain"),
+	-- },
 	{
 		key = "w",
 		mods = "LEADER",
@@ -126,9 +126,9 @@ config.keys = {
 				-- An empty string if they just hit enter
 				-- Or the actual line of text they wrote
 				if line then
-          if line == '' then
-            line = nil
-          end
+					if line == "" then
+						line = nil
+					end
 					window:perform_action(
 						act.SwitchToWorkspace({
 							name = line,
@@ -169,6 +169,19 @@ config.keys = {
 			},
 		}),
 	},
+	-- {
+	-- 	key = "U",
+	-- 	mods = "CTRL|SHIFT",
+	-- 	action = act.PromptInputLine({
+	-- 		description = "Enter new workspace name:",
+	-- 		action = wezterm.action_callback(function(window, pane, line)
+	-- 			if line then
+	--          print(window:window_id())
+	-- 				window:set_workspace(line)
+	-- 			end
+	-- 		end),
+	-- 	}),
+	-- },
 }
 
 config.wsl_domains = {
@@ -207,7 +220,7 @@ config.unix_domains = {
 	{
 		name = "unix2",
 		socket_path = "~/.local/share/wezterm/sock2",
-	}
+	},
 }
 
 wezterm.on("gui-startup", function(cmd)
