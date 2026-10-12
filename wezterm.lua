@@ -40,7 +40,7 @@ config.quick_select_patterns = {
 	-- File paths (stops at ~, allows dots in path but stops before dot+space)
 	"/[^/\\s│~]+(?:/[^/\\s│~]+)*(?:\\.(?!\\s)[a-zA-Z0-9]+)?",
 	-- hopefully this gets the path from .\* and etc
-	[[(?:[A-Za-z]:\\|\.\\|\\)[\w.-]+(?:\\[\w .()-]+)*(?:\\[\w .()-]+)*]],
+	[[(?:[A-Za-z]:\\|\.\\)?[\w.-]+(?:\\[\w .()-]+)+]],
 }
 
 config.keys = {
