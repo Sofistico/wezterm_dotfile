@@ -10,6 +10,23 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
+local dimmer = { brightness = 0.4 }
+config.background = {
+	{
+		source = {
+			File = wezterm.config_dir .. "/cindy.jpg",
+		},
+		-- The texture tiles vertically but not horizontally.
+		-- When we repeat it, mirror it so that it appears "more seamless".
+		-- An alternative to this is to set `width = "100%"` and have
+		-- it stretch across the display
+		-- repeat_x = 'Mirror',
+		hsb = dimmer,
+		height = "Contain",
+		width = "100%",
+	},
+}
+
 config.font = wezterm.font_with_fallback({
 	{ family = "DejaVuSansM Nerd Font", scale = 0.91 },
 	{ family = "Symbols Nerd Font Mono", scale = 0.80 },
