@@ -280,7 +280,13 @@ wezterm.on("update-right-status", function(window, _)
 
 	local bat = ""
 	for _, b in ipairs(wezterm.battery_info()) do
-		bat = "🔋 " .. string.format("%.0f%%", b.state_of_charge * 100)
+		local icon = "🔋 "
+		if b.state == 'Charging' then
+			icon = icon .. '+ '
+		elseif b.state_of_charge < 0.20 then
+			icon = '🪫'
+		end
+		bat = icon .. string.format("%.0f%%", b.state_of_charge * 100)
 	end
 
 	window:set_right_status(wezterm.format({
@@ -302,7 +308,7 @@ local SOLID_RIGHT_ARROW = wezterm.nerdfonts.pl_left_hard_divider
 -- It prefers the title that was set via `tab:set_title()`
 -- or `wezterm cli set-tab-title`, but falls back to the
 -- title of the active pane in that tab.
-function tab_title(tab_info)
+local function tab_title(tab_info)
   local title = tab_info.tab_title
   -- if the tab title is explicitly set, take that
   if title and #title > 0 then
@@ -349,5 +355,9 @@ wezterm.on(
     }
   end
 )
+
+wezterm.on('window-config-reloaded', function(window, pane)
+  window:toast_notification('wezterm', 'configuration reloaded!', nil, 4000)
+end)
 
 return config
