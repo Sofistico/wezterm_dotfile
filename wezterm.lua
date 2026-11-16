@@ -33,6 +33,8 @@ config.font = wezterm.font_with_fallback({
 })
 config.font_size = 10.0
 config.hide_tab_bar_if_only_one_tab = false
+config.use_fancy_tab_bar = false
+config.tab_max_width = 60
 config.window_padding = {
 	left = 0,
 	right = 0,
@@ -269,12 +271,6 @@ wezterm.on("gui-attached", function(domain)
 end)
 
 wezterm.on("update-right-status", function(window, _)
-	window:set_right_status(window:active_workspace())
-end)
--- This is where you actually apply your config choices
-
--- and finally, return the configuration to wezterm
-wezterm.on("update-right-status", function(window, _)
 	-- "Wed Mar 3 08:14"
 	local date = wezterm.strftime("%a %b %-d %H:%M ")
 
@@ -283,20 +279,23 @@ wezterm.on("update-right-status", function(window, _)
 		local icon = "🔋 "
 		local context = ""
 		if b.state == "Charging" then
-			context = " + "
+			context = " 🔌 "
 		elseif b.state_of_charge < 0.20 then
 			icon = "🪫"
+		elseif b.state == "Full" then
+			b.state_of_charge = 1.0
 		end
 		bat = icon .. string.format("%.0f%%", b.state_of_charge * 100) .. context
 	end
 
 	window:set_right_status(wezterm.format({
-		{ Text = bat .. "   " .. date },
+		{ Text = bat .. "   " .. date .. window:active_workspace() },
 	}))
 end)
 
 wezterm.on("bell", function(window, pane)
 	wezterm.log_info("the bell was rung in pane " .. pane:pane_id() .. "!")
+	window:toast_notification("wezterm", "The bell was rung in pane " .. pane:pane_id(), nil, 4000)
 end)
 
 -- The filled in variant of the < symbol
