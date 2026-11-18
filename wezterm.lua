@@ -354,8 +354,4 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	}
 end)
 
-wezterm.on("window-config-reloaded", function(window, pane)
-	window:toast_notification("wezterm", "configuration reloaded!", nil, 4000)
-end)
-
 return config
